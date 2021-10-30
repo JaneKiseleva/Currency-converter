@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Http\Requests\ConvertCurrencyRequest;
 use App\Models\Currency;
 use Illuminate\Support\Facades\Http;
 

@@ -37,11 +37,3 @@ class ParseCurrency extends Command
         $commandsOfCurrency->updateOrCreateCurrency($arrayOfQueryCurrency, $dataOfCB);
     }
 }
-
-
-
-
-
-
-
-

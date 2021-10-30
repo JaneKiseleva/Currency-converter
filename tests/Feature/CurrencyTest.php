@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Services\CommandsOfCurrency;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Mockery\MockInterface;
 use Tests\TestCase;
 use Mockery as m;
@@ -16,21 +14,6 @@ class CurrencyTest extends TestCase
      *
      * @return void
      */
-
-    //assertOk (проверяет не упал ли сервак)
-
-//    public function test_actual()
-//    {
-//        $response = $this->get('/api/actual');
-//
-//        $response->assertJson([
-//            "data" => "2021-10-28",
-//            "currency"=> [
-//                "USD" => "69.81",
-//                "EUR" => "81.03",
-//                "GBP" => "95.98"
-//            ]]);
-//    }
 
     public function tearDown():void
     {
@@ -104,17 +87,6 @@ class CurrencyTest extends TestCase
 
     public function test_mok()
     {
-//        $service = m::mock(CommandsOfCurrency::class);
-//
-//        $service
-//            ->shouldReceive('getValue')
-//            ->andReturn(10, 1);
-//
-//        app()
-//            ->bind(CommandsOfCurrency::class, function() use($service) {
-//            return $service;
-//        });
-
         $this->instance(
             CommandsOfCurrency::class,
             m::mock(CommandsOfCurrency::class, function (MockInterface $mock) {
@@ -123,7 +95,6 @@ class CurrencyTest extends TestCase
                     ->andReturn(10, 1);
             })
         );
-
         $response = $this
             ->post('/api/convert',
         [
@@ -131,7 +102,6 @@ class CurrencyTest extends TestCase
             "to"=> "RUB",
             "sum"=> 700
         ]);
-
         $response
             ->assertStatus(200)
             ->assertJson([
@@ -140,3 +110,16 @@ class CurrencyTest extends TestCase
     }
 }
 
+
+//    public function test_actual()
+//    {
+//        $response = $this->get('/api/actual');
+//
+//        $response->assertJson([
+//            "data" => "2021-10-28",
+//            "currency"=> [
+//                "USD" => "69.81",
+//                "EUR" => "81.03",
+//                "GBP" => "95.98"
+//            ]]);
+//    }

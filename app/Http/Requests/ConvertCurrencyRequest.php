@@ -44,34 +44,3 @@ class ConvertCurrencyRequest extends FormRequest
         ];
     }
 }
-
-
-
-//$currencies = [
-//    Currency::query()
-//        ->where("name", "=", 'USD')
-//        ->orWhere("name", "=", 'EUR')
-//        ->orWhere("name", "=", 'GBP')
-//        ->get('name'),
-////            Currency::query()->where("name", "=", 'EUR')
-////                ->first()
-////                ->name,
-////            Currency::query()->where("name", "=", 'GBP')
-////                ->first()
-////                ->name,
-//    'RUB'
-//];
-
-//Currency::query()->where("name", "=", 'USD')
-//    ->first()
-//    ->name,
-//            Currency::query()->where("name", "=", 'EUR')
-//                ->first()
-//                ->name,
-//            Currency::query()->where("name", "=", 'GBP')
-//                ->first()
-//                ->name,
-
-//            'from' => ['required|exists:App\Models\Currency,name', Rule::in(['RUB'=>1])],
-//            'to' => ['required|exists:App\Models\Currency,name', Rule::in(['RUB'=>1])],
-//            'sum' => 'required|integer'
